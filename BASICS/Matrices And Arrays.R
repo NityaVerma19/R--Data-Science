@@ -32,3 +32,34 @@ ncol(mymat)   # 3 cols
 dim(mymat)[2]  #extracting only no of cols = 3
 
 
+#-------------------SUBSETTING--------------------------#
+
+A <- matrix(c(0.3,4.5,55.3,91,0.1,105.5,-4.2,8.2,27.9),nrow=3,ncol=3)
+A
+
+#extractig 105.5
+
+A[3,2]
+
+
+
+#---row, column, diagonal extractions
+
+
+#extracting column 2
+A[,2]
+
+#extracting first row
+A[1,]
+
+#Extracting only 2nd and 3rd row
+A[2:3,]
+
+
+#Extracting 3rd and 1st col
+
+A[,c(3,1)]
+
+#accesses the third and first rows of A, in that order, and from those rows it
+#returns the second and third column elements.
+A[c(3,1),2:3]
