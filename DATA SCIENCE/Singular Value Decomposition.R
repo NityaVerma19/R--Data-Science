@@ -117,4 +117,26 @@ grayscale(img) %>% plot(colourscale = cscale,
                         axes = FALSE)
 
 
+cscale = function(v) rgb(v,v,0)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+cscale = function(v) rgb(0,v,v)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+
+cscale = function(v) rgb(v,v,v)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+
+#Perform SVD on each of the colour scale
+
+#separately and store it in the list
+
+svdR = svd(R)
+svdG = svd(G)
+svdB = svd(B)
+svdRGB = list(svdR , svdG, svdB)
 
