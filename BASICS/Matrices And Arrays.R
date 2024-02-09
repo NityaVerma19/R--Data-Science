@@ -22,4 +22,13 @@ rbind(1:3, 4:6)
 
 cbind(c(1,4), c(2,5), c(3,6))
 
+#---------------------Matrix Dimensions----------------------------------#
+
+mymat = rbind(c(1,3,4), 5:3, c(100,20,90), 11:13)
+
+dim(mymat)     #4 rows, 3 cols
+nrow(mymat)    # 4 rows
+ncol(mymat)   # 3 cols
+dim(mymat)[2]  #extracting only no of cols = 3
+
 
