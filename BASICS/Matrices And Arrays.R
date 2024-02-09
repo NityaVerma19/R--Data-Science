@@ -136,3 +136,102 @@ matrix(C[-4,-1])
 #e)
 C
 matrix(data = C[c(3,4),c(1,2)], nrow =2, ncol = 2)
+
+
+#----------------------------------------MATRIX OPERATIONS AND ALGEBRA--------------------------------------#
+
+#-----Transpose
+
+A= rbind(c(2,5,2), c(6,1,4))
+
+t(A)
+
+
+#-----Identity matrix
+
+I = diag(x =3)
+I
+
+
+#NOTE: 
+#If, as earlier, x is a matrix, diag will retrieve the diagonal elements
+#of the matrix. If x is a single positive integer, as is the case here, then diag
+#will produce the identity matrix of the corresponding dimension
+
+
+
+#---------Scalar multiple of a matrix
+
+A = rbind(c(2,5,2),c(6,1,4))
+A
+a = 2
+A*a
+
+
+#-------Matrix Addition and Subtraction
+
+A = cbind(c(2,5,2),c(6,1,4))
+A
+
+B <- cbind(c(-2,3,6),c(8.1,8.2,-9.8))
+B
+
+A-B
+
+#-------Matrix multiplication
+
+A <- rbind(c(2,5,2),c(6,1,4))
+A
+
+B <- cbind(c(3,-1,1),c(-3,1,5))
+B
+A%*%B
+
+
+#----------Matrix Inversion
+A <- matrix(data=c(3,4,1,2),nrow=2,ncol=2)
+A
+
+solve(A)
+
+
+#You can also verify that the product of these two matrices (using matrix
+#multiplication rules) results in the 2 × 2 identity matrix
+
+A%*%solve(A)
+
+
+
+
+#-------------------------------EXERCISE 3.2-------------------------------------------#
+
+#a)
+A = matrix(data= c(1,2,7,2,4,6), nrow = 3, ncol =2)
+A
+
+B= matrix(data = c(10,30,50,20,40,60), nrow=3, ncol =2)
+B
+
+C =2/7
+
+C*(A-B)
+
+#b)
+
+A=cbind(c(1,2,7))
+A
+
+B = cbind(c(3,4,8))
+B
+
+dim(A)
+dim(B)
+
+A%*%B  #not possible
+
+t(A)%*%B
+
+t(B)%*%(A%*%t(A))
+
+solve((B%*%t(B))+ (A%*%t(A)) - 100*diag(3))
+
