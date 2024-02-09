@@ -83,8 +83,38 @@ par(mfrow = c(2,3) , mar =c(1,1,1,1))
 plot(as.cimg(approx5), main ="(a) 5 singular vectors", axes = FALSE)
 plot(as.cimg(approx10), main ="(b) 10 singular vectors", axes = FALSE)
 plot(as.cimg(approx25), main ="(c) 25 singular vectors", axes = FALSE)
-plot(as.cimg(approx35), main ="(d) 35 singular vectors", axes = FALSE)
 plot(as.cimg(approx85), main ="(e) 85 singular vectors", axes = FALSE)
 plot(as.cimg(approx105), main ="(e) 105 singular vectors", axes = FALSE)
 plot(as.cimg(megraay), main = "(f) Full image", axes = FALSE)
+
+
+
+#-------------------Obtain the matrices corresponding to RGB colour scale--------------------------#
+
+R = img[,,1]
+G = img[,,2]
+B = img[,,3]
+
+
+#plot the image in thre colours
+
+par(mfrow = c(1,3), mar = c(1,1,1,1))
+
+cscale = function(v) rgb(v,0,0)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+
+cscale = function(v) rgb(0,v,0)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+
+
+cscale = function(v) rgb(0,0,v)
+grayscale(img) %>% plot(colourscale = cscale, 
+                        rescale = FALSE,
+                        axes = FALSE)
+
+
 
