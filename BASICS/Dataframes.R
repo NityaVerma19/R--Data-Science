@@ -24,3 +24,38 @@ dim(df)
 #R’s default behavior for character vectors passed to data.frame is to convert each variable into a factor object
 
 df$person
+
+
+
+#--------Adding data columns and combining df-----#
+
+#using rbind to add a new row
+
+newrec = data.frame(person="Brian",age=7,
+                     sex=factor("M",levels=levels(df$sex)))
+newrec
+#Note that for a factor, you can extract the levels of the existing factor variable using levels
+
+df = rbind(df, newrec)   #added a new record
+df
+
+
+#Adding a new column using cbind
+
+funny <- c("High","High","Low","Med","High","Med")
+funny <- factor(x=funny,levels=c("Low","Med","High"))
+#The first line creates the basic character vector as funny, and the second
+#line overwrites funny by turning it into a factor.
+
+funny
+df = cbind(df, funny)
+df
+
+
+# One useful alternative for adding a variable is to use the dollar operator, much like adding a new member to a named list
+
+#adding another variable to mydata by including acolumn with the age of the individuals in months
+df$age.mon= df$age+ 12
+df
+
+
