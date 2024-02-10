@@ -84,3 +84,43 @@ df[df$age>10 | df$funny == 'High']
 #Sometimes, asking for a subset will yield no records. In this case, R
 
 df[df$age >45,]
+
+
+
+#------------------------NAN---------------------------------#
+
+qux = c(NA,5.89,Inf,NA,9.43,-2.35,NaN,2.10,-8.53,-7.58,NA,-4.58,2.01,NaN)
+
+which(x = is.nan(qux))  #index of values which are nan
+x #a boolean result
+
+?which
+
+
+#Omitting the nan values
+
+qux = na.omit(object = qux)
+qux
+
+
+#-----------------------NULL-----------------------#
+
+#An instance of NA clearly denotes an existing
+#position that can be accessed and/or overwritten if necessary—not so for
+#NULL. You can see an indication of this if you compare the assignment of NA
+#with the assignment of a NULL.
+
+r = c(2,3,4, NA,5)
+q = c(2,3,NULL,2)
+
+
+opt.arg <- c("string1","string2","string3")
+
+is.na(opt.arg)
+is.null(opt.arg)
+
+#The position-specific nature of NA means that this check is element-wise
+#and returns an answer for each value in opt.arg. This is problematic because
+#you want only a single answer—is opt.arg empty or is it supplied? This is
+#when NULL comes to the party
+
