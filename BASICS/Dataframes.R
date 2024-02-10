@@ -59,3 +59,28 @@ df$age.mon= df$age+ 12
 df
 
 
+
+#--------------LOGICAL RECORD SUBSETS-----------------------#
+
+#This flags the male records
+df$sex == 'M'
+
+#This returns data for all variables for only the male participants
+df[df$sex == 'M',]
+
+#Omitting sex using negative indexing
+df[df$sex == 'M',-3]
+
+#Or by using names instead
+df[df$sex == 'M',c("person","age","funny","age.mon")]
+
+
+# Let’s extract from mydata the full records for individuals who are
+#more than 10 years old OR have a high degree of funniness.
+
+
+df[df$age>10 | df$funny == 'High']
+
+#Sometimes, asking for a subset will yield no records. In this case, R
+
+df[df$age >45,]
