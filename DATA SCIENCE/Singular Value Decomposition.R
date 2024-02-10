@@ -140,3 +140,16 @@ svdG = svd(G)
 svdB = svd(B)
 svdRGB = list(svdR , svdG, svdB)
 
+
+
+#Reconstruct the original coloured image
+
+par(mfrow=c(2,3), mar = c(1,1,1,1))
+
+for (j in c(5,10,25,35,50)){
+  comp = sapply(svdRGB, function(i){
+    compressed = i$u[,1:j]%*%diag(i$d[1:j])%*%t(i$v[,1:j])
+  }, simplify = 'array')
+  comp = as.cimg(comp)
+  plot(comp, axes = FALSE , main = paste("Rank=", j))
+}
