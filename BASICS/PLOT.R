@@ -20,3 +20,25 @@ plot(foo,bar,type ="b",main = "plot" , xlab = "x axis label", ylab = "location y
 plot(foo, bar, type = "b" , main = "plot", xlab = "", ylab = "", col = 2)
 
 R> plot(foo,bar,type="b",main="My lovely plot",xlab="",ylab="",col="seagreen4")
+
+
+#Line and point appearances 
+
+#To alter the appearance of the plotted points you would use pch, and to
+#alter the lines you would use "lty"
+
+plot(foo,bar,type="b",main="My lovely plot",xlab="",ylab="",
+     col=4,pch=8,lty=2,cex=2.3,lwd=3.3)
+
+# The lty parameter, which affects the type of line drawn, can
+#take the values 1 through 6. 
+
+#You can also control the size of plotted points using cex
+
+#thickness of lines using lwd
+
+plot(foo,bar,type="b",main="My lovely plot",xlab="",ylab="",
+     col=4,pch=8,lty=2,cex=2.3,lwd=3.3,xlim=c(-10,5),ylim=c(-3,3))
+
+#Both parameters require a numeric vector of length 2, provided as
+#c(lower,upper).
