@@ -35,6 +35,59 @@ filter(flights, month %in% c(11,12))
 
 filter(flights, !(arr_delay > 120| dep_delay > 120))
 
+#If you want to determine if a value is missing, use is.na()
+
+
+#---------------EXERCISES--------------#
+
+df = flights
+df
+
+#1. Find all flights that:
+
+#a. Had an arrival delay of two or more hours
+
+(arr2 = filter(flights, arr_delay > 120 ))
+
+#b. Flew to Houston (IAH or HOU)
+
+(flew = filter(flights, dest == "IAH" | dest == "HOU"))
+
+#c. Were operated by United, American, or Delt
+
+(carr = filter(flights, carrier %in% c('UA','AA','DT' )))
+
+#d. Departed in summer (July, August, and September)
+
+(dept = filter(flights, dep_time == 7 & dep_time == 8 & dep_time == 9))
+
+#e. Arrived more than two hours late, but didn’t leave late
+
+filter(flights, arr_delay >2 , dep_delay == 0)
+
+#f. Were delayed by at least an hour, but made up over 30 minutes in flight
+
+
+
+#g. Departed between midnight and 6 a.m. (inclusive)
+
+filter(flights,dep_time >= 1200 & dep_time <= 600)
+
+#2. Another useful dplyr filtering helper is between(). What does it do? Can you use it to simplify the code needed to answer the previous challenges?
+#3. How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
+#4. Why is NA ^ 0 not missing? Why is NA | TRUE not missing?
+#Why is FALSE & NA not missing? Can you figure out the general rule? (NA * 0 is a tricky counterexample!)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
