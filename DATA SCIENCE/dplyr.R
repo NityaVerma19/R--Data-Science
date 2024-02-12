@@ -86,6 +86,48 @@ filter(flights, is.na(dep_time))
 
 
 
+#------------ARRANGE-----------------#
+#arrange() works similarly to filter() except that instead of selecting rows, it changes their order.
+
+df
+
+arrange(df, year, month, day)
+?arrange
+
+
+
+#-------------Exercises----------------#
+#1. How could you use arrange() to sort all missing values to the start? (Hint: use is.na().)
+arrange(flights, desc(is.na(dep_time)))
+
+#2. Sort flights to find the most delayed flights. Find the flights
+#that left earliest.
+
+arrange(flights, desc(dep_delay))
+arrange(flights, !desc(dep_time))
+
+#3. Sort flights to find the fastest flights.
+
+flights = mutate(flights, 
+       time_taken = arr_time - dep_time)   
+arrange(flights, !desc(time_taken))
+
+
+#4. Which flights traveled the longest? Which traveled the shortest
+
+
+View(flights)
+longest = arrange(flights, desc(distance))
+
+arrange(flights, !desc(distance))
+
+
+
+
+
+
+
+
 
 
 
