@@ -122,6 +122,63 @@ longest = arrange(flights, desc(distance))
 arrange(flights, !desc(distance))
 
 
+#------------------SELECT-------------------w
+
+
+#selecting only month and year
+select(flights, month, year)
+
+# Select all columns between year and day (inclusive)
+
+select(flights, year:day)
+
+# Select all columns except those from year to day (inclusive)
+
+select(flights, -(year:day))
+
+
+#There are a number of helper functions you can use within select()
+
+
+#starts_with("abc")
+
+select(flights, starts_with('ta')) #column that starts with ta
+
+#ends_with("xyz")
+
+select(flights, ends_with('ay'))
+
+#contains("ijk") 
+
+select(flights, contains('a'))
+
+#---------Add New Variables with mutate() ------------#
+
+
+#compute hour and minute from dep_time 
+
+#%/% (integer division) and %% (remainder)
+
+mutate(flights,dep_time ,hour = dep_time%/%100 )
+mutate(flights, dep_time, min = dep_time %% 100)
+flights$minute
+
+#---------Grouped Summaries with summarize()------------#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
