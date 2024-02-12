@@ -165,7 +165,35 @@ flights$minute
 
 #---------Grouped Summaries with summarize()------------#
 
+#. It collapses a data frame to a single row
 
+#group_by and summarize should be used together
+
+
+by_day = group_by(flights, day, month, year)
+summarize(by_day, delay = mean(dep_delay, na.rm = TRUE))
+?group_by
+
+#------Combining Multiple Operations with the Pipe----------#
+
+
+delays = flights %>%
+  group_by(dest) %>%
+  summarize(count = n(), dist = mean(distance, na.rm = TRUE),
+           delay = mean(arr_delay, na.rm = TRUE))%>%
+  filter(count >20, dest != 'HNL')
+
+#na.rm removes the missing values
+
+#flights which are not cancelled
+
+not_can = flights %>%
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+
+#Whenever you do any aggregation, it’s always a good idea to include
+#either a count (n()), or a count of nonmissing values
+#(sum(!is.na(x))). That way you can check that you’re not drawing
+#conclusions based on very small amounts of data.
 
 
 
