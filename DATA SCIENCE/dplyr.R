@@ -196,31 +196,90 @@ not_can = flights %>%
 #conclusions based on very small amounts of data.
 
 
+#-----------SURVEYS DATASET-------------#
+
+#importing data
+choose.files()
+sur = read.csv("C:\\Users\\DELL\\Downloads\\surveys.csv")
+sur
+
+
+#class of the data
+
+class(sur)
+
+#data type of each column
+
+str(sur)
+
+#Using pipes, subset the surveys data to include animals collected 
+#before 1995 and retain only the columns year, sex, and weight
+
+
+sur%>%
+  filter(year<1995)%>%
+  select(year, sex, sex, wgt)
+
+#To create a new column of weight in kg
+View(sur)
+sur%>%
+  filter(!is.na(wgt))
+  mutate(wt_in_kg = wgt/1000 )%>%
+  head
 
 
 
+#Find the sex wise, spcies_id wise mean weight.
+
+sur%>%
+  group_by(sex)%>%
+  summarise(mean_wt = mean(wgt , na.rm = TRUE))
+
+#Modify the previous output by adding a column indicating the 
+#minimum weight for each species for each sex.
+
+sur%>%
+  filter(!is.na(wgt))%>%
+  group_by(sex)%>%
+  summarise(mean_wt = mean(wgt , na.rm = TRUE),
+            min_wt = min(wgt))
+
+#• Display the output for lighter species first (Hint: arrange())
 
 
+sur%>%
+  filter(!is.na(wgt))%>%
+  group_by(sex)%>%
+  summarise(mean_wt = mean(wgt , na.rm = TRUE),
+            min_wt = min(wgt))%>%
+  arrange(min_wt)
 
 
+# count the number of rows of data for each sex
 
+count(sur, sex)
 
+# make a contingency table of sex and species_id
 
+count(sur, sex, species)
 
+#• Arrange the table in
+#• an alphabetical order of the levels of the species
+#• in descending order of the count
 
+sur%>%
+  count(sex, species)%>%
+  arrange(!desc(species), desc(n))
 
+#What was the heaviest animal measured in each year? Return the 
+#columns year, genus, species_id, and weigh
 
-
-
-
-
-
-
-
-
-
-
-
+sur%>%
+  filter(!is.na(wgt))%>%
+  group_by(year)%>%
+  filter(wgt == max(wgt))%>%
+  select(year, species, wgt)%>%
+  arrange(year)
 
 
 
