@@ -35,6 +35,28 @@ df1 = iris
 fviz_pca_biplot(col.ind = df1$Species, pr.out1, addEllipses = TRUE)
 
 
+#-----------Protein data-------------#
+
+
+data= read.csv("C://Users//DELL//Downloads//protein.csv")
+data = data[2:9]
+pr1 = prcomp(data, scale = TRUE)
+summary(pr1)
+
+
+pr1$rotation
+
+
+pv = pr1$sdev^2
+pve = pv/sum(pv)
+pve
+
+biplot(pr1)
+data$Country
+
+fviz_pca_biplot(col.ind = data$Country, pr1)
+
+
 
 
 
