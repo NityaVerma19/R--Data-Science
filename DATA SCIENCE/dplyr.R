@@ -5,7 +5,7 @@ library("nycflights13")
 nycflights13::flights
 View(flights)
 
-
+group_by(flights, day, month)
 
 #Pick observations by their values (filter()).
 #Reorder the rows (arrange())
@@ -200,9 +200,20 @@ not_can = flights %>%
 
 #importing data
 choose.files()
-sur = read.csv("C:\\Users\\DELL\\Downloads\\surveys.csv")
+sur = read.csv("C://Users//DELL//OneDrive//Desktop//Desktop//College//DATA SCIENCE//R//RDS//DATA SCIENCE//surveys.csv")
 sur
-
+sur%>%
+  filter(!is.na(wgt))%>%
+  group_by(sex)%>%
+  summarise(avg = mean(wgt))
+  
+sur%>%
+  filter(!is.na(wgt))%>%
+  group_by(sex, species)%>%
+  summarise(avg = mean(wgt))
+  
+  
+  
 
 #class of the data
 
@@ -227,8 +238,8 @@ sur%>%
   mutate(wt_in_kg = wgt/1000 )%>%
   head
 
-
-
+sur%>%
+  count(sex, species)
 #Find the sex wise, spcies_id wise mean weight.
 
 sur%>%
@@ -254,6 +265,7 @@ sur%>%
             min_wt = min(wgt))%>%
   arrange(min_wt)
 
+sur
 
 # count the number of rows of data for each sex
 
