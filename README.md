@@ -14,5 +14,12 @@
   <b>The book of R</b> - Tilman M. Davies
 </li>
 </ul>
+<br>
+<h3>Data Science</h3>
+<ul><li>
+  <b>R for Data Science</b> - Garrett Grolemund and Hadley Wickham
+</li>
+</ul>
+
 </body>
 </html>
