@@ -134,3 +134,54 @@ legend("bottomleft",
       pch=c(NA,19,1,4,3,NA,NA),lty=c(4,NA,NA,NA,NA,2,3),
       col=c("black","blue","black","darkmagenta","darkgreen","red","red"),
       lwd=c(1,NA,NA,NA,NA,2,2),pt.cex=c(NA,1,1,2,2,NA,NA))
+
+
+
+
+#-------------------------EXERCISE 7.1---------------------------------#
+
+
+x = -3:3
+y = 7:13
+plot(x,y, type = "n", main= "")
+
+abline(h = c(7:3), lty =2)
+abline(h = c(13:13) ,lty = 2)
+
+abline(v = c(-3,13), lty = 2)
+abline(v = c(3,13), lty = 2)
+
+arrows(x0 = -2.5, y0 = 10,
+      x1 = -1 , y1 = 10)
+arrows(x0 = 2.5 , y= 10,
+       x1 = 1, y1 = 10)
+
+arrows(x0 = -2.7 , y= 7.3,
+       x1 = -1, y1 = 9.5)
+arrows(x0 = 2.7 , y= 7.3,
+       x1 = 1, y1 = 9.5)
+
+arrows(x0 = -2.7 , y= 12.7,
+       x1 = -1, y1 = 10.3)
+arrows(x0 = 2.7 , y= 12.7,
+       x1 = 1, y1 = 10.3)
+
+text(x = 0, y = 10.2,labels = 'SOMETHINNG')
+text(x = 0, y = 9.9, labels = 'PROFOUND')
+
+
+
+
+
+
+#2)
+wt = c(55,85,75,42,93,63,58,75,89,67)
+ht = c(161,185,174,154,188,178,170,167,181,178)
+sex = c('f','m','m','f','m','m','f','m','m','f')
+
+plot(x = wt, y=ht, 
+     col =ifelse(sex == 'f', 'hotpink','blue'), 
+     pch = ifelse(sex == 'f', 2,3),
+     main = 'Sex-wise height and weight',
+     xlab = 'weight',
+     ylab = 'height')
