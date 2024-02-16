@@ -185,3 +185,31 @@ plot(x = wt, y=ht,
      main = 'Sex-wise height and weight',
      xlab = 'weight',
      ylab = 'height')
+
+
+
+#-----------------A quick plot with qplot---------------------#
+library("ggplot2")
+foo = c(1.1,2,3.5,3.9,4.2)
+bar = c(2,2.2,-1.3,0,0.2)
+qplot(foo, bar)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
