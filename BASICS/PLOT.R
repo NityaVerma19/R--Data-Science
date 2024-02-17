@@ -255,6 +255,15 @@ qplot(x,y,color=ptype,shape=ptype) + geom_point(size=4) +
   geom_segment(mapping=aes(x=15,y=-5,xend=15,yend=5),color="red",lty=3)
 
 
+data = rnorm(10000, 0,1)
+y = dnorm(data) 
+qplot(data,y, color ='cyan')
+
+
+
+
+
+
 
 
 
