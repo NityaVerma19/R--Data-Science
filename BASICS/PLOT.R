@@ -189,24 +189,42 @@ plot(x = wt, y=ht,
 
 
 #-----------------A quick plot with qplot---------------------#
+
 library("ggplot2")
 foo = c(1.1,2,3.5,3.9,4.2)
 bar = c(2,2.2,-1.3,0,0.2)
 qplot(foo, bar)
 
+plot(foo, bar)
+
+
+qplot( foo, bar, xlab = "X axis", ylab = 'y axis', main = "Plot")
+
+
+baz = plot(foo, bar)
+#Since nothing is actually stored in the workspace, printing the supposed object baz yields the empty NULL value.
+baz
+
+quz = qplot(foo, bar)
+quz #This time, when you perform the assignment, no plot is displayed
+
+
+#-----------------Setting Appearance Constants with Geom--------------------#
+
+
+qplot(foo, bar, geom = "blank") + geom_point() + geom_line()
+
+#The geom = "blank" argument is used to create a blank canvas without any points or lines initially.
+#This adds points to the plot. It overlays points on the existing blank plot created by qplot. The geom_point() function is used to represent data points on the graph.
+
+
+qplot(foo, bar, geom = "blank")+ geom_point(size =3, shape= 6, color = "blue") + geom_line(color = "red")
 
 
 
-
-
-
-
-
-
-
-
-
-
+myqplot = qplot(foo, bar, geom = 'blank') + geom_line(color = 'red', linetype = 2)
+myqplot + geom_point(size =3, shape = 3, color = 'blue')
+myqplot + geom_point(size =3, shape = 7, color = 'blue')
 
 
 
